@@ -266,6 +266,8 @@ footer{
     }
     .result{
         width: 85%;
+        font-size: large;
+
     }
     .result_heading{
         flex-direction: row;
@@ -273,6 +275,9 @@ footer{
         align-items: center;
         margin: 0px;
         padding: 0px;
+        font-size: medium;
+    }
+    .resultTver{
         font-size: medium;
     }
     

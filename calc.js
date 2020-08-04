@@ -55,6 +55,7 @@
         let tax = +taxes1.value;
         let m = 1;
         divi = document.createElement("div");
+        divi.setAttribute("class", "resultTver")
         result.appendChild(divi);
         getResultYear.innerHTML = `Years`;
         money1 = money;
@@ -99,6 +100,7 @@
         let tax = +taxes.value;
         let m = 1;
         divi = document.createElement("div");
+        divi.setAttribute("class", "resultTver")
         result.appendChild(divi);
         
         if (getSel.value == "ann" && startMoney.value != "" && divYield.value != ""){
@@ -205,7 +207,7 @@
         drip.style.display = 'none';
         note.style.display = 'block';
     });
-    /// աշխատում է երկու տեղում էլ պետք է միայն մոբայլում
+   
    if (innerWidth <= 680){
        newStart.addEventListener("click", ()=>{
            simple.style.display = 'block';

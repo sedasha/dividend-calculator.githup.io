@@ -207,7 +207,7 @@
     });
     /// աշխատում է երկու տեղում էլ պետք է միայն մոբայլում
    if (innerWidth <= 680){
-       newStartMobile.addEventListener("click", ()=>{
+       newStart.addEventListener("click", ()=>{
            simple.style.display = 'block';
            drip.style.display = 'block';
            dripCalc.style.display = 'none';

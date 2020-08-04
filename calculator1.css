@@ -174,9 +174,7 @@ p>p{
 .result_heading{
     display: flex;
     justify-content: space-around;
-    display: flex;
     flex-direction: row;
-    justify-content: space-around;
     border-bottom: 1px solid rgba(4, 24, 39, 0.973);
     padding-right: 20px;
     box-sizing: border-box;
@@ -187,10 +185,8 @@ p>p{
 }
 footer{
     text-align: center;
-    
     background-color: rgba(131, 144, 204, 0.8);
     width: 100%;
-   
     padding: 7px 0px;
     /* margin-top:20px; */
     
@@ -270,6 +266,14 @@ footer{
     }
     .result{
         width: 85%;
+    }
+    .result_heading{
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        margin: 0px;
+        padding: 0px;
+        font-size: medium;
     }
     
 }

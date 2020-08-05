@@ -40,16 +40,12 @@ h1:hover{
 h2{
     text-align: center;
     padding-bottom: 10px;
-    transition: 1s;
     text-shadow: 2px 2px 8px rgb(124, 136, 190),
     2px -2px 8px rgb(124, 136, 190),
     -2px 2px 8px rgb(124, 136, 190),
     -2px -2px 8px rgb(124, 136, 190);
 }
-h2:hover{
-    transform: scale(1.05);
-    cursor: pointer;
-}
+
 /* .lang{
     width: 30px;
     padding: 0px;
@@ -156,10 +152,11 @@ p>p{
 }
 #usefuldiv{
     padding: 15px 40px;
-    font-size: 16px;
+    font-size: 13px;
     font-weight: 500;
     letter-spacing: 1px;
     line-height: 20px;
+    font-style: italic;
 }
 .result{
     margin: 0 auto;
@@ -253,6 +250,18 @@ footer{
     }
     .phone_button{
         display: block;
+        text-align: center;
+        padding-bottom: 10px;
+        transition: 1s;
+        text-shadow: 2px 2px 8px rgb(124, 136, 190),
+        2px -2px 8px rgb(124, 136, 190),
+        -2px 2px 8px rgb(124, 136, 190),
+        -2px -2px 8px rgb(124, 136, 190);
+    }
+    
+    .phone_button:hover{
+        transform: scale(1.05);
+        cursor: pointer;
     }
     #simple{
         margin-top: 200px;

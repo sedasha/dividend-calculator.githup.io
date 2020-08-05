@@ -61,8 +61,8 @@
         money1 = money;
         if (startMoney1.value != "" && divYield1.value != ""){
            for (let i = 0; i < +years1.value; i++){
-               dividend = (((money/100 * yield) + (money / 100 * yield) / 100 * growth)-( ((money/100 * yield) + (money / 100 * yield) / 100 * growth) / 100 * tax))
-            money1 = money1 + dividend;
+               dividend = (((money1/100 * yield) + (money1 / 100 * yield) / 100 * growth)-(((money1/100 * yield) + ((money1 / 100 * yield) / 100 * growth) / 100 * tax)))
+            money1 += dividend;
             moneyFormatted = money1.toFixed(2);
             dividendFormatted = dividend.toFixed(2);
             divi.style.display = "inline";

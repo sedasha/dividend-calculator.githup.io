@@ -207,6 +207,7 @@ footer{
     body{
         background-size: contain;
         background-repeat: repeat;
+        background-attachment: fixed;
         font-size: 13px;
     }
     header{

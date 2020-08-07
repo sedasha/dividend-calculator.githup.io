@@ -188,11 +188,7 @@
     result.appendChild(lift);
 
     newStart.addEventListener("click", ()=>{
-        location.reload(true)
-        // emptyValue(startMoney, years,  startMoney1, divYield1, divGrowth1, taxes1, years1);
-        // emptyValue(startMoney1, years1, startMoney, divYield, divGrowth, taxes, years);
-        // result.style.display = 'none';
-        // getSel.value = "ann"
+       location.reload()
     });
     simple.addEventListener("click", ()=>{
         simpleCalc.style.display = 'block';
@@ -208,18 +204,6 @@
         drip.style.display = 'none';
         note.style.display = 'block';
     });
-   
-   if (innerWidth <= 680){
-       newStart.addEventListener("click", ()=>{
-           simple.style.display = 'block';
-           drip.style.display = 'block';
-           dripCalc.style.display = 'none';
-           simpleCalc.style.display = 'none';
-           usefuld.style.display = 'none';
-           note.style.display = 'none';
-           
-        })
-    }
 
     function aler(a, b, c) {
         if (a.value == "" ){

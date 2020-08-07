@@ -1,9 +1,7 @@
     //mobile
     let newStart = document.querySelector("h1");
-    let newStartMobile = document.querySelector("#invest_mobile")
     let simple = document.querySelector("#simple");
     let drip = document.querySelector("#drip");
-    let simpleDrip = document.querySelectorAll(".phone_button")
     let usefuld = document.querySelector("#useful");
     let simpleCalc = document.getElementById("simple_calc");
     let dripCalc = document.getElementById("drip_calc");
@@ -15,7 +13,6 @@
     let taxes1 = document.querySelector(".tax1");
     let years1 = document.querySelector(".year1");
     let but1 = document.querySelector(".calculate1");
-    let money1;
     let getResultYear = document.querySelector(".result_year")
     let finalResult = document.querySelector(".final_result");
     
@@ -33,13 +30,8 @@
     let getSel = document.querySelector(".pay_time")
     
     let finalText = document.createElement("p");
-    let dividend, checking = true, divi, lift, moneyFormatted, dividendFormatted;
-    let usa = document.querySelector("#us");
-    let arme = document.querySelector("#arm");
-    let languages = document.querySelectorAll(".text"), newlanguages = [];
-    for (let i = 0; i < languages.length; i++) {
-        newlanguages.push(languages[i]);
-    };
+    let dividend, money1, checking = true, divi, lift, moneyFormatted, dividendFormatted;
+  
     
     
     but1.addEventListener("click", ()=>{
@@ -61,7 +53,7 @@
         money1 = money;
         if (startMoney1.value != "" && divYield1.value != ""){
            for (let i = 0; i < +years1.value; i++){
-               dividend = (((money1/100 * yield) + (money1 / 100 * yield) / 100 * growth)-(((money1/100 * yield) + ((money1 / 100 * yield) / 100 * growth) / 100 * tax)))
+               dividend = (((money/100 * yield) + (money / 100 * yield) / 100 * growth)-(((money/100 * yield) + ((money / 100 * yield) / 100 * growth) / 100 * tax)))
             money1 += dividend;
             moneyFormatted = money1.toFixed(2);
             dividendFormatted = dividend.toFixed(2);
@@ -123,7 +115,7 @@
                     flex-direction:row;
                     justify-content: space-around;`;
                 m++
-            }
+            };
             result.style.display = 'block';
             emptyValue(startMoney, years,  startMoney1, divYield1, divGrowth1, taxes1, years1);
         }

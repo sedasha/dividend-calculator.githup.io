@@ -188,10 +188,11 @@
     result.appendChild(lift);
 
     newStart.addEventListener("click", ()=>{
-        emptyValue(startMoney, years,  startMoney1, divYield1, divGrowth1, taxes1, years1);
-        emptyValue(startMoney1, years1, startMoney, divYield, divGrowth, taxes, years);
-        result.style.display = 'none';
-        getSel.value = "ann"
+        location.reload(true)
+        // emptyValue(startMoney, years,  startMoney1, divYield1, divGrowth1, taxes1, years1);
+        // emptyValue(startMoney1, years1, startMoney, divYield, divGrowth, taxes, years);
+        // result.style.display = 'none';
+        // getSel.value = "ann"
     });
     simple.addEventListener("click", ()=>{
         simpleCalc.style.display = 'block';

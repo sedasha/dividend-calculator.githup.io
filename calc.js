@@ -5,8 +5,8 @@
     let usefuld = document.querySelector("#useful");
     let simpleCalc = document.getElementById("simple_calc");
     let dripCalc = document.getElementById("drip_calc");
-    let note = document.querySelector(".note")
-
+    let note = document.querySelector(".note");
+    ////------------------calculate-1---------------//
     let startMoney1 = document.querySelector(".start_money1");
     let divYield1 = document.querySelector(".div_yield1");
     let divGrowth1 = document.querySelector(".div_growth1");
@@ -15,6 +15,7 @@
     let but1 = document.querySelector(".calculate1");
     let getResultYear = document.querySelector(".result_year")
     let finalResult = document.querySelector(".final_result");
+    ////------------------calculate-1---------------//
     
     let startMoney = document.querySelector(".start_money");
     let divYield = document.querySelector(".div_yield");
@@ -32,7 +33,26 @@
     let finalText = document.createElement("p");
     let dividend, money1, checking = true, divi, lift, moneyFormatted, dividendFormatted;
   
-    
+    ////------------------calculate-1---------------//
+    function divedent(money,yield,growth,tax){
+        return (((money/100 * yield) + ((money / 100 * yield) / 100 * growth))-(((money/100 * yield) + ((money / 100 * yield) / 100 * growth)) / 100 * tax))
+    }
+    function calc1main(m) {
+        moneyFormatted = money1.toFixed(2);
+        dividendFormatted = dividend.toFixed(2);
+        divi.style.display = "inline";
+        let resultyear = document.createElement("span");
+        resultyear.innerHTML = `
+        <span>${m}</span><span>${dividendFormatted}</span> <span>${moneyFormatted}</span>
+        <br>`;
+        divi.appendChild(resultyear);
+        resultyear.style = `
+        padding-left: 30px;
+        box-sizing:border-box;  
+        display:flex;
+        flex-direction:row;
+        justify-content: space-around;`;
+    }
     but1.addEventListener("click", ()=>{
         if (checking == false){ 
             divi.remove()
@@ -52,22 +72,9 @@
         money1 = money;
         if (startMoney1.value != "" && divYield1.value != ""){
            for (let i = 0; i < +years1.value; i++){
-               dividend = (((money/100 * yield) + (money / 100 * yield) / 100 * growth)-(((money/100 * yield) + ((money / 100 * yield) / 100 * growth) / 100 * tax)))
-            money1 += dividend;
-            moneyFormatted = money1.toFixed(2);
-            dividendFormatted = dividend.toFixed(2);
-            divi.style.display = "inline";
-            let resultyear = document.createElement("span");
-            resultyear.innerHTML = `
-            <span>${m}</span><span>${dividendFormatted}</span> <span>${moneyFormatted}</span>
-            <br>`;
-            divi.appendChild(resultyear);
-            resultyear.style = `
-            padding-left: 30px;
-            box-sizing:border-box;
-            display:flex;
-            flex-direction:row;
-            justify-content: space-around;`;
+               dividend = divedent(money,yield,growth,tax)
+            money1 +=  dividend;
+            calc1main(m)
             m++
         }
         result.style.display = 'block';
@@ -75,12 +82,30 @@
     }
        
     });
+    ////------------------calculate-1------------------------------------------------------//
     
+    function calc1mainDrip(m) {
+        moneyFormatted = money.toFixed(2);
+        dividendFormatted = dividend.toFixed(2);
+        divi.style.display = "inline";
+        let resultyear = document.createElement("span");
+        resultyear.innerHTML = `
+        <span>${m}</span><span>${dividendFormatted}</span> <span>${moneyFormatted}</span>
+        <br>`;
+        divi.appendChild(resultyear);
+        resultyear.style = `
+        padding-left: 30px;
+        box-sizing:border-box;  
+        display:flex;
+        flex-direction:row;
+        justify-content: space-around;`;
+    }
+   
     but.addEventListener("click", ()=>{
         if (checking == false){ 
-        divi.remove()
-        finalText.remove()
-        getResultYear.innerHTML = ``;
+            divi.remove()
+            finalText.remove()
+            getResultYear.innerHTML = ``;
         }
         checking = false;
         
@@ -97,22 +122,10 @@
         if (getSel.value == "ann" && startMoney.value != "" && divYield.value != ""){
             getResultYear.innerHTML = `Years`;
             for (let i = 0; i < +years.value; i++){
-                dividend = (((money/100 * yield) + (money / 100 * yield) / 100 * growth)-( ((money/100 * yield) + (money / 100 * yield) / 100 * growth) / 100 * tax))
-                money = money + dividend;
-                moneyFormatted = money.toFixed(2);
-                dividendFormatted = dividend.toFixed(2);
-                divi.style.display = "inline";
-                let resultyear = document.createElement("span");
-                resultyear.innerHTML = `
-                <span>${m}</span><span>${dividendFormatted}</span> <span>${moneyFormatted}</span>
-                <br>`;
-                divi.appendChild(resultyear);
-                resultyear.style = `
-                    padding-left: 30px;
-                    box-sizing:border-box;
-                    display:flex;
-                    flex-direction:row;
-                    justify-content: space-around;`;
+                dividend = divedent(money,yield,growth,tax)
+                money += dividend;
+                calc1mainDrip(m)
+               
                 m++
             };
             result.style.display = 'block';

@@ -33,7 +33,6 @@
     let dividend, money1, checking = true, divi, lift, moneyFormatted, dividendFormatted;
   
     
-    
     but1.addEventListener("click", ()=>{
         if (checking == false){ 
             divi.remove()

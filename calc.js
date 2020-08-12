@@ -5,7 +5,7 @@
     let usefuld = document.querySelector("#useful");
     let simpleCalc = document.getElementById("simple_calc");
     let dripCalc = document.getElementById("drip_calc");
-    let note = document.querySelector(".note");
+    let note = document.querySelector(".note")
     ////------------------calculate-1---------------//
     let startMoney1 = document.querySelector(".start_money1");
     let divYield1 = document.querySelector(".div_yield1");

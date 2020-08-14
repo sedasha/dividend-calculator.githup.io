@@ -29,6 +29,8 @@
     let getSel = document.querySelector(".pay_time")
     
     let finalText = document.createElement("p");
+    let privacy = document.querySelector(".privacy");
+    let privacyText = document.querySelector(".privacy_explain");
     let dividend, money1, checking = true, divi, lift, moneyFormatted, dividendFormatted;
     divi = document.createElement("div");
     divi.setAttribute("class", "resultTver")
@@ -126,6 +128,10 @@
     lift.setAttribute("id", "pop");
     result.appendChild(lift);
 
+    privacy.addEventListener("click", ()=>{
+        privacy.appendChild(privacyText);
+        privacyText.style.display = "block"
+})
     
 // ------------------Responsive------------------///
     simple.addEventListener("click", ()=>{

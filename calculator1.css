@@ -183,13 +183,22 @@ p>p{
 footer{
     text-align: center;
     background-color: rgba(131, 144, 204, 0.8);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
     width: 100%;
-    padding: 7px 0px;
-    /* margin-top:20px; */
+    padding: 10px 0px;
+    opacity: 0.8;
     
 }
 .fa-copyright{
     font-size: 13px;
+}
+.privacy_explain{
+    display: none;
+}
+.privacy{
+cursor: pointer;
 }
 .note{
     font-size: 15px;

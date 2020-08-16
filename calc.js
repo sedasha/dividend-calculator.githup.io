@@ -26,24 +26,30 @@
     let monthly = document.querySelector(".month");
     let result = document.querySelector(".result");
     let but = document.querySelector(".calculate");
-    let getSel = document.querySelector(".pay_time")
-    
-    let finalText = document.createElement("p");
+    let getSel = document.querySelector(".pay_time");
+    // -----------Alert-------------//
+    let alerPrincipal1 = document.querySelector("#alert_principal1");
+    let alerYield1 = document.querySelector("#alert_yield1");
+    let aleryear1 = document.querySelector("#alert_year1");
+    let alerPrincipal = document.querySelector("#alert_principal");
+    let alerYield = document.querySelector("#alert_yield");
+    let aleryear = document.querySelector("#alert_year");
+
     let privacy = document.querySelector(".privacy");
     let privacyText = document.querySelector(".privacy_explain");
-    let dividend, money1, checking = true, divi, lift, moneyFormatted, dividendFormatted;
-    divi = document.createElement("div");
-    divi.setAttribute("class", "resultTver")
-    result.appendChild(divi);
+    let dividend, money1, checking = true, checking2= true, lift, 
+    moneyFormatted, dividendFormatted, resultyear, m, divi;
+    
     // ------reload-----------//
     newStart.addEventListener("click", ()=>{
         location.reload()
      });
     ////------------------calculate-1---------------//
     but1.addEventListener("click", ()=>{
+
         if (checking == false){ 
-            divi.remove()
-            finalText.remove()
+            divi.remove();
+            result.style.display = "none";
         }
         checking = false;
         aler(startMoney1, divYield1, years1);
@@ -51,7 +57,9 @@
         let yield = +divYield1.value; 
         let growth = +divGrowth1.value;
         let tax = +taxes1.value;
-        let m = 1;
+        divi = document.createElement("div");
+        result.appendChild(divi);
+        m = 1;
         getResultYear.innerHTML = `Years`;
         money1 = money;
         if (startMoney1.value != "" && divYield1.value != ""){
@@ -60,19 +68,19 @@
             money1 += dividend;
             moneyFormatted = money1.toFixed(2);
             dividendFormatted = dividend.toFixed(2);
-            calc(m)
+            calc(m);
             m++
             }
         result.style.display = 'block';
-        emptyValue(startMoney1, years1, startMoney, divYield, divGrowth, taxes, years);
-        }   
+        emptyValue(startMoney1, years1, startMoney, divYield, divGrowth, taxes, years, alerPrincipal, alerYield, aleryear);
+        }  
+     
     });
     ////------------------calculate-Drip------------------------------------------------------//
     but.addEventListener("click", ()=>{
-        if (checking == false){ 
-            divi.remove()
-            finalText.remove()
-            getResultYear.innerHTML = ``;
+        if (checking == false){
+            divi.remove();
+            result.style.display = "none";
         }
         checking = false;
         aler(startMoney, divYield, years);
@@ -80,7 +88,9 @@
         let yield = +divYield.value; 
         let growth = +divGrowth.value;
         let tax = +taxes.value;
-        let m = 1;
+        divi = document.createElement("div");
+        result.appendChild(divi);
+        m = 1;
         if (getSel.value == "ann" && startMoney.value != "" && divYield.value != ""){
             getResultYear.innerHTML = `Years`;
             for (let i = 0; i < +years.value; i++){
@@ -91,6 +101,7 @@
                 calc(m)
                 m++
             };
+            
           
         }
         if (getSel.value == "month" && startMoney.value != "" && divYield.value != ""){
@@ -106,6 +117,7 @@
                calc(m)
                 m++
             }
+            
         }
         if (getSel.value == "quar" && startMoney.value != "" && divYield.value != ""){
             getResultYear.innerHTML = `Quarters`;
@@ -121,14 +133,15 @@
                  m++
              }
         }
-            result.style.display = 'block';
-            emptyValue(startMoney, years, startMoney1, divYield1, divGrowth1, taxes1, years1);
+        result.style.display = 'block';
+        emptyValue(startMoney, years, startMoney1, divYield1, divGrowth1, taxes1, years1, alerPrincipal1, alerYield1, aleryear1);
     });
     lift = document.createElement("a");
     lift.setAttribute("id", "pop");
     result.appendChild(lift);
-
+    // ------------Privacy-------------/
     privacy.addEventListener("click", ()=>{
+        checking2 == false;
         privacy.appendChild(privacyText);
         privacyText.style.display = "block"
 })
@@ -150,17 +163,27 @@
     });
 // /----------------functions---------------//
     function aler(a, b, c) {
-        if (a.value == "" ){
-            alert("Please input the Starting Principal");
-        }
+        if (a.value == ""){
+            result.style.display = "none";
+            a == startMoney1?alerPrincipal1.style.display = "block":alerPrincipal.style.display = "block";
+        } else{
+                a == startMoney1?alerPrincipal1.style.display = "none":alerPrincipal.style.display = "none";
+            }
         if (b.value == ""){
-            alert("Please input the Dividend Yield")
-        }
+            result.style.display = "none";
+            b == divYield1?alerYield1.style.display = "block":alerYield.style.display = "block";
+        }else{
+                b == divYield1?alerYield1.style.display = "none":alerYield.style.display = "none";
+            }
         if(c.value == ""){
-            alert("Please input the amount of years you are going to hold")
+            result.style.display = "none";
+            c == years1?aleryear1.style.display = "block":aleryear.style.display = "block";
+        }else {
+            c == years1?aleryear1.style.display = "none":aleryear.style.display = "none";
         }
     }
-    function emptyValue(startMoney, years,  startMoney1, divYield1, divGrowth1, taxes1, years1){
+
+    function emptyValue(startMoney, years,  startMoney1, divYield1, divGrowth1, taxes1, years1, alerPrincipal1, alerYield1, aleryear1){
        finalResult.innerHTML = ` You started with <i>${startMoney.value}$</i> and ended up with <i>${moneyFormatted}$</i>. 
        <br> This was over <i>${years.value} years.</i>`;
         startMoney1.value= "";
@@ -168,22 +191,20 @@
         divGrowth1.value ="";
         taxes1.value = "";
         years1.value = "";
+        alerPrincipal1.style.display = "none";
+        alerYield1.style.display = "none";
+        aleryear1.style.display = "none";
     }
     function divedent(money,yield,growth,tax){
         return (((money/100 * yield) + ((money / 100 * yield) / 100 * growth))-(((money/100 * yield) + ((money / 100 * yield) / 100 * growth)) / 100 * tax))
     }
     function calc(m){
         divi.style.display = "inline";
-        let resultyear = document.createElement("span");
+        resultyear = document.createElement("span");
+        resultyear.setAttribute("class", "resultJS")
         resultyear.innerHTML = `
         <span>${m}</span><span>${dividendFormatted}</span> <span>${moneyFormatted}</span> <br>`;
         divi.appendChild(resultyear);
-        resultyear.style = `
-        padding-left: 30px;
-        box-sizing:border-box;  
-        display:flex;
-        flex-direction:row;
-        justify-content: space-around;`;
     }
     
   

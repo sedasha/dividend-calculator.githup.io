@@ -19,15 +19,18 @@
             <h2> Dividend Simple calculator</h2>
             <div class="dives" >
                 <h4>Starting Principal<span>*</span></h4>
-                <input class="start_money1" type="number" >
+                <input class="start_money1" type="number">
+                <span id="alert_principal1" class="alert" >*Please input the Starting Principal</span>
                 <h4>Dividend Yield<span>*</span></h4>
                 <input class="div_yield1" type="number" ><label> %</label>
+                <span class="alert" id ="alert_yield1">*Please input Dividend Yield </span>
                 <h4> Dividend Growth </h4>
                 <input class="div_growth1" type="number" ><label> %</label>
                 <h4>Dividend Tax Rate</h4>
                 <input class="tax1" type="number" ><label> %</label>
                 <h4>Years to hold<span>*</span></h4>
                 <input class="year1" type="number" ><br>
+                <span class="alert" id ="alert_year1">*Please input the amount of years you are going to hold</span>
                 <a href="#pop" ><button  class="calculate1">Calculate</button></a>
             </div>
         </div>
@@ -36,8 +39,10 @@
             <div class="dives" >
                <h4 >Starting Principal<span>*</span></h4>
                <input class="start_money" type="number">
+               <span class="alert" id="alert_principal">*Please input the Starting Principal</span>
                <h4>Dividend Yield<span>*</span></h4>
                <input class="div_yield" type="number" ><label> %</label>
+               <span class="alert" id="alert_yield">*Please input Dividend Yield </span>
                <h4>Dividend Growth</h4>
                <input class="div_growth" type="number" ><label> %</label>
                <h4>Dividend Tax Rate</h4>
@@ -50,6 +55,7 @@
                </select><br>
                <h4>Years to hold<span>*</span></h4>
                <input class="years" type="number" >
+               <span class="alert" id="alert_year">*Please input the amount of years you are going to hold</span>
                <br>
                <a href="#pop" > <button class="calculate">Calculate</button> </a>
             </div>
@@ -80,7 +86,6 @@
         <div class="result_heading"> 
             <span class="result_year">Year</span><span class="text">Income</span><span class="text">Holdings income</span>
         </div>
-           
     </div>
     <footer>
         <span class = "privacy"> Privacy policy </span>

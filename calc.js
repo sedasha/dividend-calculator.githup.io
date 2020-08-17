@@ -46,7 +46,6 @@
      });
     ////------------------calculate-1---------------//
     but1.addEventListener("click", ()=>{
-
         if (checking == false){ 
             divi.remove();
             result.style.display = "none";
@@ -72,8 +71,8 @@
             m++
             }
         result.style.display = 'block';
-        emptyValue(startMoney1, years1, startMoney, divYield, divGrowth, taxes, years, alerPrincipal, alerYield, aleryear);
-        }  
+    }  
+    emptyValue(startMoney1, years1, startMoney, divYield, divGrowth, taxes, years, alerPrincipal, alerYield, aleryear);
      
     });
     ////------------------calculate-Drip------------------------------------------------------//
@@ -102,8 +101,6 @@
                 m++
             };
             result.style.display = 'block';
-            
-          
         }
         if (getSel.value == "month" && startMoney.value != "" && divYield.value != "" && years.value != ""){
             getResultYear.innerHTML = `Months`;
@@ -150,58 +147,38 @@
             privacyText.style.display = "none"
             checking2 = true
         }
-})
-    
+    })
+
 // ------------------Responsive------------------///
     simple.addEventListener("click", ()=>{
-        simpleCalc.style.display = 'block';
-        usefuld.style.display = 'block';
-        simple.style.display = 'none';
-        drip.style.display = 'none';
-        note.style.display = 'block';
+        [simpleCalc, usefuld, note]. forEach(elem => elem.style.display ="block");
+        [simple, drip].forEach(elem => elem.style.display = "none");
     });
     drip.addEventListener("click", ()=>{
-        dripCalc.style.display = 'block';
-        usefuld.style.display = 'block';
-        simple.style.display = 'none';
-        drip.style.display = 'none';
-        note.style.display = 'block';
+        [dripCalc, usefuld, note]. forEach(elem => elem.style.display ="block");
+        [simple, drip].forEach(elem => elem.style.display = "none");
     });
 // /----------------functions---------------//
     function aler(a, b, c) {
-        let arr = [a, b, c];
-
-        if (a.value == ""){
-            result.style.display = "none";
-            a == startMoney1?alerPrincipal1.style.display = "block":alerPrincipal.style.display = "block";
-        } else{
-                a == startMoney1?alerPrincipal1.style.display = "none":alerPrincipal.style.display = "none";
-            }
-        if (b.value == ""){
-            result.style.display = "none";
-            b == divYield1?alerYield1.style.display = "block":alerYield.style.display = "block";
-        }else{
-                b == divYield1?alerYield1.style.display = "none":alerYield.style.display = "none";
-            }
-        if(c.value == ""){
-            result.style.display = "none";
-            c == years1?aleryear1.style.display = "block":aleryear.style.display = "block";
-        }else {
-            c == years1?aleryear1.style.display = "none":aleryear.style.display = "none";
-        }
+        arr = [a, b, c];
+        arr1 =[startMoney1, divYield1, years1];
+        arr2 =[alerPrincipal1, alerYield1, aleryear1];
+        arr3 = [alerPrincipal, alerYield, aleryear]
+        arr.forEach((elem, index)=>{
+            if (elem.value == ""){
+                result.style.display = "none";
+                elem == arr1[index]?arr2[index].style.display = "block":arr3[index].style.display = "block";
+            } else{
+                    elem == arr1[index]?arr2[index].style.display = "none":arr3[index].style.display = "none";
+                }
+        })
     }
 
     function emptyValue(startMoney, years,  startMoney1, divYield1, divGrowth1, taxes1, years1, alerPrincipal1, alerYield1, aleryear1){
        finalResult.innerHTML = ` You started with <i>${startMoney.value}$</i> and ended up with <i>${moneyFormatted}$</i>. 
        <br> This was over <i>${years.value} years.</i>`;
-        startMoney1.value= "";
-        divYield1.value = "";
-        divGrowth1.value ="";
-        taxes1.value = "";
-        years1.value = "";
-        alerPrincipal1.style.display = "none";
-        alerYield1.style.display = "none";
-        aleryear1.style.display = "none";
+        [startMoney1, divYield1, divGrowth1,taxes1, years1].forEach(elem => elem.value = "");
+        [alerPrincipal1, alerYield1, aleryear1].forEach(elem => elem.style.display = "none")
     }
     function divedent(money,yield,growth,tax){
         return (((money/100 * yield) + ((money / 100 * yield) / 100 * growth))-(((money/100 * yield) + ((money / 100 * yield) / 100 * growth)) / 100 * tax))

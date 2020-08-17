@@ -210,4 +210,19 @@ cursor: pointer;
     padding-bottom: 15px;
     box-sizing: border-box;
 }
+/* sclorrbar style  */
+::-webkit-scrollbar{
+    width: 15px;
+}
+::-webkit-scrollbar-track{
+    box-shadow: 0 0 5px grey;
+    border-radius: 7.5px;
+}
+::-webkit-scrollbar-thumb{
+    background-color: rgb(124, 136, 190);
+    border-radius: 7.5px;
+}
+::-webkit-scrollbar-thumb:hover{
+    background-color: rgb(148, 164, 233);
+}
 

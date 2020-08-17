@@ -15,7 +15,7 @@
     let but1 = document.querySelector(".calculate1");
     let getResultYear = document.querySelector(".result_year")
     let finalResult = document.querySelector(".final_result");
-    ////------------------calculate-1---------------//
+    ////------------------calculate----------------//
     let startMoney = document.querySelector(".start_money");
     let divYield = document.querySelector(".div_yield");
     let divGrowth = document.querySelector(".div_growth");
@@ -51,8 +51,8 @@
             divi.remove();
             result.style.display = "none";
         }
-        checking = false;
         aler(startMoney1, divYield1, years1);
+        checking = false;
         let money = +startMoney1.value;
         let yield = +divYield1.value; 
         let growth = +divGrowth1.value;
@@ -62,7 +62,7 @@
         m = 1;
         getResultYear.innerHTML = `Years`;
         money1 = money;
-        if (startMoney1.value != "" && divYield1.value != ""){
+        if (startMoney1.value != "" && divYield1.value != "" && years1.value != ""){
            for (let i = 0; i < +years1.value; i++){
                dividend = divedent(money,yield,growth,tax)
             money1 += dividend;
@@ -91,7 +91,7 @@
         divi = document.createElement("div");
         result.appendChild(divi);
         m = 1;
-        if (getSel.value == "ann" && startMoney.value != "" && divYield.value != ""){
+        if (getSel.value == "ann" && startMoney.value != "" && divYield.value != ""  && years.value != ""){
             getResultYear.innerHTML = `Years`;
             for (let i = 0; i < +years.value; i++){
                 dividend = divedent(money,yield,growth,tax)
@@ -101,10 +101,11 @@
                 calc(m)
                 m++
             };
+            result.style.display = 'block';
             
           
         }
-        if (getSel.value == "month" && startMoney.value != "" && divYield.value != ""){
+        if (getSel.value == "month" && startMoney.value != "" && divYield.value != "" && years.value != ""){
             getResultYear.innerHTML = `Months`;
             let yearsM = +years.value * 12;
             yield = yield / 12;
@@ -117,9 +118,10 @@
                calc(m)
                 m++
             }
+            result.style.display = 'block';
             
         }
-        if (getSel.value == "quar" && startMoney.value != "" && divYield.value != ""){
+        if (getSel.value == "quar" && startMoney.value != "" && divYield.value != "" && years.value != ""){
             getResultYear.innerHTML = `Quarters`;
              let yearsQ = +years.value * 4;
              yield = yield / 4;
@@ -132,8 +134,8 @@
                   calc(m)
                  m++
              }
+             result.style.display = 'block';
         }
-        result.style.display = 'block';
         emptyValue(startMoney, years, startMoney1, divYield1, divGrowth1, taxes1, years1, alerPrincipal1, alerYield1, aleryear1);
     });
     lift = document.createElement("a");
@@ -141,9 +143,13 @@
     result.appendChild(lift);
     // ------------Privacy-------------/
     privacy.addEventListener("click", ()=>{
-        checking2 == false;
-        privacy.appendChild(privacyText);
-        privacyText.style.display = "block"
+        if (checking2 == true){
+            checking2 = false
+            privacyText.style.display = "block"
+        }else{
+            privacyText.style.display = "none"
+            checking2 = true
+        }
 })
     
 // ------------------Responsive------------------///
@@ -163,6 +169,8 @@
     });
 // /----------------functions---------------//
     function aler(a, b, c) {
+        let arr = [a, b, c];
+
         if (a.value == ""){
             result.style.display = "none";
             a == startMoney1?alerPrincipal1.style.display = "block":alerPrincipal.style.display = "block";

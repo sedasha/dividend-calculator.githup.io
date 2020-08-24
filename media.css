@@ -1,7 +1,6 @@
 @media (min-width:280px) and (max-width:680px){
     body{
         background-size: cover;
-        background-repeat: repeat;
         background-attachment: fixed;
         font-size: 13px;
     }
@@ -83,14 +82,22 @@
     footer{
         flex-direction: column;
         align-items: center;
+        padding-top: 2px;
     }
     
 }
-/* @media (min-width:600px) and (max-width:1024px){
-    .bigdives{
+@media (min-width:680px) and (max-width:1024px){
+
+    section{
         flex-wrap: wrap;
     }
     #useful{
-        flex-wrap: wrap;
+        width: calc(100% - 2%);
     }
-} */
+    .bigdives{
+        width: 45%;
+    }
+    input, select{
+        width: 150px;
+    }
+}

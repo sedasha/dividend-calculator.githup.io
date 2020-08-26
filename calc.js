@@ -140,13 +140,7 @@
     result.appendChild(lift);
     // ------------Privacy-------------/
     privacy.addEventListener("click", ()=>{
-        if (checking2 == true){
-            checking2 = false
-            privacyText.style.display = "block"
-        }else{
-            privacyText.style.display = "none"
-            checking2 = true
-        }
+       privacy.classList.toggle("explain");
     })
 
 // ------------------Responsive------------------///

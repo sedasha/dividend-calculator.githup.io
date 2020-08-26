@@ -5,12 +5,11 @@
 }
 body{
     background-image: url(dolls.jpg);
+    backdrop-filter: blur(1.5px);
     background-repeat: repeat;
     background-position: cover;
     background-attachment: fixed;
     background-size: 100%;
-
-
 }
 header{
     text-align: center;
@@ -196,9 +195,6 @@ footer{
 .fa-copyright{
     font-size: 13px;
 }
-.privacy_explain{
-    display: none;
-}
 .privacy{
 cursor: pointer;
 }
@@ -227,5 +223,13 @@ cursor: pointer;
 }
 ::-webkit-scrollbar-thumb:hover{
     background-color: rgb(148, 164, 233);
+}
+.explain::after{
+    content: "We don’t collect personal information, and we don’t use third party services that collect personal information";
+    width: 300px;
+    background-color:rgb(80, 95, 159);
+    position: absolute;
+    transform: translateY(-85px) translateX(-200px);
+    padding: 10px;
 }
 

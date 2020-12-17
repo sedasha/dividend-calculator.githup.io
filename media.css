@@ -3,6 +3,11 @@
         background-size: cover;
         background-attachment: fixed;
         font-size: 13px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        
     }
     header{
         padding: 10px 0px;
@@ -56,10 +61,10 @@
         cursor: pointer;
     }
     #simple{
-        margin-top: 200px;
+        margin-top: 100px;
     }
     #drip{
-        margin-bottom: 200px;
+        margin-bottom: 100px;
     }
     .note{
         display: none;
@@ -83,6 +88,8 @@
         flex-direction: column;
         align-items: center;
         padding-top: 2px;
+        bottom: 0;
+        
     }
     
 }

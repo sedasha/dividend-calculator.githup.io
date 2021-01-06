@@ -7,6 +7,7 @@
     let dripCalc = document.getElementById("drip_calc");
     let note = document.querySelector(".note")
     ////------------------calculate-1---------------//
+
     let startMoney1 = document.querySelector(".start_money1");
     let divYield1 = document.querySelector(".div_yield1");
     let divGrowth1 = document.querySelector(".div_growth1");
